@@ -20,7 +20,7 @@ public class fbis_parser {
 
         List<String> fbis_docs = new ArrayList<String>();
         Map<String, String> fbis_content = new HashMap<String, String>();
-        File[] file_list = new File("./Documents/fbis/").listFiles();
+        File[] file_list = new File("../Documents/fbis/").listFiles();
 
         String OUTPUT_FILE = "./output/parsed_docs/fbis.json";
         //System.out.println(file_list.length);
