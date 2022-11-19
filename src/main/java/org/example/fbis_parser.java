@@ -54,8 +54,8 @@ public class fbis_parser {
                 fbis_content.put("f", f);
                 fbis_content.put("text", text);
             }
+            fbis_docs.add(new JSONObject(fbis_content).toString() + ',');
         }
-        fbis_docs.add(new JSONObject(fbis_content).toString() + ',');
         //System.out.println(fbis_docs);
 
         File resultFile = new File(OUTPUT_FILE);
