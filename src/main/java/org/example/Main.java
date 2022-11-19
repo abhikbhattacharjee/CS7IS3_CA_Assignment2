@@ -10,7 +10,7 @@ public class Main {
         ft_parser.ft_parser_main(null);
         latimes_parser.latimes_parser_main(null);
         fr94_parser.fr94_parser_main(null);
-        combined_indexing.combined_indexer(null);
+        indexer.combined_indexer(null);
         queries.queries(null);
     }
 }
