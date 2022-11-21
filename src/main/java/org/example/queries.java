@@ -33,7 +33,7 @@ import org.apache.lucene.util.Version;
 import org.apache.lucene.analysis.StopwordAnalyzerBase;
 import java.util.Scanner;
 
-public class quires {
+public class queries {
 
     // the location of the search index
     private static String INDEX_DIRECTORY = "./index";
@@ -42,7 +42,7 @@ public class quires {
     // Limit the number of search results we get
 
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void queries(String[] args) throws IOException, ParseException {
         // Make sure we were given something to index
 
         String queryString = null;
