@@ -33,7 +33,7 @@ import org.apache.lucene.util.Version;
 import org.apache.lucene.analysis.StopwordAnalyzerBase;
 import java.util.Scanner;
 
-public class queries {
+public class quires {
 
     // the location of the search index
     private static String INDEX_DIRECTORY = "./index";
@@ -42,7 +42,7 @@ public class queries {
     // Limit the number of search results we get
 
 
-    public static void queries(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException {
         // Make sure we were given something to index
 
         String queryString = null;
@@ -50,7 +50,8 @@ public class queries {
         // Analyzer used by the query parser.
         // Must be the same as the one used when creating the index
 //          Analyzer analyzer = new ClassicAnalyzer();
-        Analyzer analyzer = new StandardAnalyzer();
+//        Analyzer analyzer = new StandardAnalyzer();
+        Analyzer analyzer  = new EnglishAnalyzer(EnglishAnalyzer.getDefaultStopSet());
 //        Analyzer analyzer = new SimpleAnalyzer();
 //        Analyzer analyzer = new WhitespaceAnalyzer();
 //        Analyzer analyzer = new EstonianAnalyzer();
@@ -125,10 +126,11 @@ public class queries {
 
         String line = in.readLine();
         String nextLine = "";
-        int queryNumber = 1;
+        int queryNumber = 401;
         PrintWriter writer;
         writer = new PrintWriter(WRITE_PATH + "/outputs1.txt", "UTF-8");
         System.out.println("Creating the final result in: ./output/outputs1.txt");
+
 
         while (true) {
             if (line == null || line.length() == -1) {
@@ -156,6 +158,7 @@ public class queries {
 
             doPagingSearch(queryNumber, in, isearcher, query, hitsPerPage, writer);
             queryNumber++;
+            System.out.println(queryNumber);
             if (queryString != null) {
                 break;
             }
@@ -188,8 +191,9 @@ public class queries {
 //            System.out.println(path);
 
             if (path != null) {
+
 //                System.out.println(queryNumber + " 0 " + path + " " +(i+1)+ " " + hits[i].score);
-                writer.println(queryNumber+" 0 " + path.replace("\n", "")  + " " + (i+1) + " " + hits[i].score +" Any");
+                writer.println(queryNumber+" Q0 " + path.replace("\n", "")  + " " + (i+1) + " " + hits[i].score +" EnglishAnalyzerBM25");
             }
         }
 
