@@ -202,6 +202,6 @@ public class queries {
                     writer.println(queryNumber+" Q0 " + path.replace("\n", "")  + " " + (i+1) + " " + hits[i].score +" EnglishAnalyzerBM25");
                 }
             }
-
+        }
     }
 }
