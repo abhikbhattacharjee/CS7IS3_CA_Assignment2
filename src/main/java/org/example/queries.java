@@ -188,14 +188,20 @@ public class queries {
         for (int i = start; i < numTotalHits; i++) {
             Document doc = searcher.doc(hits[i].doc);
             String path = doc.get("docno");
-//            System.out.println(path);
-
-            if (path != null) {
-
-//                System.out.println(queryNumber + " 0 " + path + " " +(i+1)+ " " + hits[i].score);
+            if(i == 0 && path != null){
                 writer.println(queryNumber+" Q0 " + path.replace("\n", "")  + " " + (i+1) + " " + hits[i].score +" EnglishAnalyzerBM25");
             }
-        }
+            else{
+                Document doc_previous = searcher.doc(hits[i-1].doc);
+                String path_previous = doc_previous.get("docno");
+//            if(path.equals(path_previous)){
+//                System.out.println(path);
+//            }
+                if (path != null && !path.equals(path_previous)) {
+//                System.out.println(queryNumber + " 0 " + path + " " +(i+1)+ " " + hits[i].score);
+                    writer.println(queryNumber+" Q0 " + path.replace("\n", "")  + " " + (i+1) + " " + hits[i].score +" EnglishAnalyzerBM25");
+                }
+            }
 
     }
 }
