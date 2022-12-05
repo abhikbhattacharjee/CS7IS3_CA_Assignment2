@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.my.lucene</groupId>
+    <artifactId>LuceneIndexing</artifactId>
+    <version>1.0</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>-cp</argument>
+                        <argument>/tmp/externalTestJars/testjar.jar</argument>
+                        <argument>com.example.Main</argument>
+                    </arguments>
+
+                    <mainClass>com.lucene.indexandsearch.Main</mainClass>
+<!--                    <arguments>${option}</arguments>-->
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>
+                            /tmp/externalTestJars/testjar.jar
+                        </additionalClasspathElement>
+                    </additionalClasspathElements>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <packaging>jar</packaging>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>8.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers-common -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+            <version>8.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queryparser</artifactId>
+            <version>8.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-queries -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queries</artifactId>
+            <version>8.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/exec-maven-plugin -->
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-demo -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-demo</artifactId>
+            <version>8.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api-osgi -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api-osgi</artifactId>
+            <version>2.2-promoted-b65</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1</version>
+        </dependency>
+
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.glassfish.jaxb</groupId>-->
+        <!--            <artifactId>jaxb-runtime</artifactId>-->
+        <!--            <version>2.3.0-b170127.1453</version>-->
+        <!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/jfree/jfreechart -->
+        <dependency>
+            <groupId>jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-core</artifactId>-->
+        <!--            <version>2.2.8-b01</version>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.sun.xml.bind</groupId>-->
+        <!--            <artifactId>jaxb-impl</artifactId>-->
+        <!--            <version>2.2-promoted-b65</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
